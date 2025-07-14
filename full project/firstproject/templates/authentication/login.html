@@ -1,0 +1,46 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title> LOGIN - BOOKTY</title>
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <div>   
+                <img src="{% static 'image/login2.png'%}" style="height: 548px;" class="mainimage" >
+            </div>
+            <div class="overlay"> Don't Have <br>account?</div>
+            <div class = "button2">
+                <a href="{% url 'signup'%}" class="b2">Sign up</a>
+            </div>
+        </div>
+        <div class="right-side">
+            <h1 id="bookty">BOOKTY.com</h1>
+            <h1>Welcome Back
+            <br>Continue Your Story</h1>
+                
+            <form class ="form2" action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="input-container">
+                    <input type="email" name="email" placeholder="Email" style="flex: 1;" required>
+                </div>
+                <div class="input-container">
+                    <input type="password" name="password" placeholder="Password" style="flex: 1;" required>
+                </div>
+                <div class="button1" >
+                    <button type="submit" class="b1">Sign In</button>
+                </div>
+            </form>
+        
+            <div class="forgot-password">
+                <a href="{% url 'reset'%}">Forget Password?</a>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

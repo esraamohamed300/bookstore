@@ -1,0 +1,69 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/main-admin.css'%}">
+    <title>BOOKTY.com</title>
+</head>
+
+<body>
+
+
+    <header>
+        <div class="logo">BOOKTY.COM</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="{% url 'starting'%}">Logout</a>
+        </nav>
+    </header>
+
+
+
+    <div class="container">
+
+        <a class="add-button" href="{% url 'add'%}">Add New Book</a>
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+        <!-- الي تحت يتعدل من الداتا بيز -->
+
+            <tbody>
+    {% for book in books %}
+        <tr data-id="row{{ book.id }}">
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.category }}</td>
+            <td class="actions">
+                <a href="{% url 'edit' book.id %}" class="btn">Edit</a>
+                <a href="{% url 'delete' book.id %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    {% empty %}
+        <tr>
+            <td colspan="4">No books found.</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+
+
+    </table>
+
+    </div>
+
+    <!-- <script src="{% static 'java/main-admin.js'%}"></script> -->
+
+</body>
+
+</html>

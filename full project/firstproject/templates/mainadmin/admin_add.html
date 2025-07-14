@@ -1,0 +1,51 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add-new-book</title>
+    <link rel="stylesheet" href="{% static 'css/admin_add.css'%}">
+  
+</head>
+
+<body>
+    <div id="logout">
+        <a href="{%url 'mainadmin'%}" class="logoutlink">Home</a>
+        <a href="{%url 'starting'%}" class="logoutlink">Logout</a>
+    </div>
+
+    <div class="dado_add_admin">
+        <div class="leftbox">
+            <h2>Add New Book</h2>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="title"></label>
+                <input type="text" id="title" required placeholder="Title" name="title">
+
+                <label for="author"></label>
+                <input type="text" id="author" placeholder="Author" name="author" required>
+
+                <label for="category"></label>
+                <input type="text" id="category" required placeholder="Category" name="category">
+
+                <label for="description"></label>
+                <textarea id="description" rows="4" required placeholder="Description" name="description"></textarea>
+
+                <label for="cover"></label>
+               <input type="file" id="cover" name="cover" accept="image/*"  >
+
+                <label for="pdf"></label>
+                <input type="file" id="pdf" >
+
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+        <div class="rightbox">
+            <img src="{% static 'image/book2.png'%}" id="rightimg" alt="Book Image">
+        </div>
+    </div>
+</body>
+
+</html>

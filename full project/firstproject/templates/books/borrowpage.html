@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Borrow list</title>
+  <link rel="stylesheet" href="{% static 'css/borrowpage.css' %}">
+</head>
+
+<body>
+
+  <div id="es_nav">
+    <a href="{% url 'books' %}"><img src="{% static 'image/house.png' %}" class="reg-img" id="es_home"></a>
+    <a href="{% url 'gad-page'%}"><img src="{% static 'image/cart.png' %}" class="reg-img" id="es_cart"></a>
+    <a href="{% url 'borrowlist'%}"><img src="{% static 'image/bar.png' %}" class="reg-img" id="es_bar"></a>
+    <h4>BOOKTY.com</h4>
+    <input type="search" id="es_search" placeholder="Search">
+  </div>
+
+  <br><br><br>
+
+  <h3 id="es_head">Borrowed Books</h3>
+  <br><br>
+
+  {% if reserved_books %}
+    <div class="dado_toptrend">
+      {% for book in reserved_books %}
+        <figure class="fig_hover">
+          <img src="{{ book.photos.url }}" class="dado_book">
+          <figcaption>{{ book.title }}</figcaption>
+        </figure>
+        {% if forloop.counter|divisibleby:4 %}
+          </div><div class="dado_toptrend">
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p style="text-align:center;">No reserved books.</p>
+  {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Books by Category</title>
+  <link rel="stylesheet" href="{% static 'css/css.css' %}">
+</head>
+<body>
+
+  <div id="dado_nav">
+    <a href="{% url 'books' %}"><img src="{% static 'image/house.png' %}" class="reg-img" id="dado_home"></a>
+    <a href="{% url 'gad-page'%}"><img src="{% static 'image/cart.png' %}" class="reg-img" id="dado_cart"></a>
+    <a href="{% url 'borrowlist'%}"><img src="{% static 'image/bar.png' %}" class="reg-img" id="dado_bar"></a>
+    <h4>BOOKTY.com</h4>
+  </div>
+
+  <div class="search-wrapper">
+    <select id="searchType">
+      <option value="all">All</option>
+      <option value="title">By Book Title</option>
+      <option value="author">By Author</option>
+      <option value="category">By Category</option>
+    </select>
+    <div class="search-input" style="margin-top: -55px;">
+      <input type="search" id="dado_search" placeholder="Search Book" >
+      <img src="{% static 'image/search.png' %}" alt="Search Icon" class="search-icon">
+    </div>
+  </div>
+  
+  <div id="searchResults" class="dado_toptrend" style="display: none; margin-top: 20px;"></div>
+  <h5>TOP TRENDING BOOKS</h5>
+  <div class="dado_toptrend">
+    <figure class="fig_hover" date-id="row1">
+      <a href="{% url 'book_detail' 53 %}" style="color:#fff8e8;">  
+      <img src="{% static 'image/img1.jpg'%}" class="dado_book" 
+      data-author="Tahereh Mafi" 
+      data-title="Shatter me" 
+      data-av="true"
+        data-cate="Fantacy" data-desc="
+      Juliette has a deadly touch that keeps her isolated in a dystopian world. The Reestablishment, a controlling government, wants to use her as a weapon. She falls for Adam, a soldier who seems immune to her power, but their love is threatened by Warner, the ruthless leader who desires her. As she learns more about herself, she discovers she’s not alone in her abilities. She decides to fight back and take control of her destiny.
+      " >
+      <figcaption>Available</figcaption>
+      </a>
+    </figure>
+
+    <figure class="fig_hover" date-id="row2">
+      <a href="{% url 'book_detail' 54 %}" style="color:#fff8e8;">
+      <img src="{% static 'image/img2.jpg'%}" class="dado_book" data-author="colleen Hoover" data-title="It ends with us" data-av="true"
+        data-cate="Romance"
+        data-desc="Lily falls for a charming neurosurgeon, Ryle, but their relationship turns abusive. As she struggles with her past and present, she recalls her first love, Atlas, who once saved her from pain. When Atlas reappears, Lily is forced to make a heartbreaking choice. The novel explores the cycle of abuse, love, and strength. In the end, Lily chooses to break the cycle for her daughter’s future"
+        onclick="handleClick(this)">
+      <figcaption>Available</figcaption>
+      </a>
+    </figure>
+
+    <figure class="fig_hover" date-id="row3">
+      <a href="{% url 'book_detail' 58 %}" style="color:#fff8e8;">
+      <img src="{% static 'image/fan2.jpg'%}" class="dado_book" 
+        data-av="true" data-cate="Thriller"
+        data-desc="Pip investigates a cold case in her small town for a school project. She re-examines the murder of Andie Bell, supposedly killed by her boyfriend, Sal, who then died by suicide. As she digs deeper, she uncovers secrets, lies, and the real killer. Her life is put in danger, but she refuses to stop. The novel is a thrilling mystery about truth and justice"
+        onclick="handleClick(this)">
+      <figcaption>Available</figcaption>
+      </a>
+    </figure>
+
+    <figure class="fig_hover" date-id="row4">
+      <a href="{% url 'book_detail' 56 %}" style="color:#fff8e8;">
+      <img src="{% static 'image/img4.jpg'%}" class="dado_book" data-author="Alex Michaelides" data-title="The Silent Patient"
+        data-av="true" data-cate="Thriller"
+        data-desc=" Alicia Berenson, a famous painter, shoots her husband and stops speaking. Theo, a psychotherapist, is determined to get her to talk and uncover the truth. As he digs deeper, he learns shocking secrets about Alicia’s past and his own involvement. The novel’s twist reveals Theo as the true culprit, manipulating Alicia all along. It’s a psychological thriller about obsession and justice"
+        onclick="handleClick(this)">
+      <figcaption>Available</figcaption>
+      </a>
+    </figure>
+
+    <figure class="fig_hover" date-id="row5">
+      <a href="{% url 'book_detail' 57 %}" style="color:#fff8e8;">
+      <img src="{% static 'image/img5.jpg'%}" class="dado_book" data-author="Freida Mcfadden" data-title="The Housemaid" data-av="true"
+        data-cate="Thriller"
+        data-desc="Millie is hired as a housemaid for the wealthy Winchester family. She soon realizes something is deeply wrong—her employer, Nina, is unstable, and secrets lurk in the house. As she uncovers the family's dark past, she becomes trapped in a deadly game. In a shocking twist, Millie fights back and turns the tables. The novel is a suspenseful psychological thriller about deception and survival"
+        onclick="handleClick(this)">
+      <figcaption>Available</figcaption>
+      </a>
+    </figure>
+  </div>
+  {% for group in books_by_category %}
+    <hr>
+    <h5>{{ group.category|upper }} BOOKS</h5>
+    <div class="dado_toptrend">
+      {% for book in group.books %}
+       <!-- <a href="{% url 'book_detail' book.id %}"  style="color:#fff8e8;">    -->
+        <figure class="fig_hover" data-id="book-{{ forloop.counter }}">
+          <a href="{% url 'book_detail' book.id %}"  style="color:#fff8e8;">
+
+            <img src="{{book.photos.url}}" class="dado_book" alt="not found"
+               data-author="{{ book.author }}"  
+               data-title="{{ book.title }}"
+               data-av="{{ book.avaliable|yesno:'true,false' }}"
+               data-cate="{{ group.category|upper }}"
+               data-desc="{{ book.description|default:'No description available.' }}"
+               dataa_id="{{ book.id }}"
+               >
+               {%if book.avaliable %}
+                   <figcaption>Available</figcaption>
+                {%else%}
+                   <figcaption>Not Available</figcaption>
+                {%endif%}
+          </a>
+          
+                   
+        </figure>
+      <!-- </a> -->
+        
+      {% endfor %}
+    </div>
+  {% endfor %}
+
+  <script src="{% static 'java/html.js' %}"></script>
+
+</body>
+</html>

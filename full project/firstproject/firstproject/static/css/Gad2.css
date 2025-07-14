@@ -1,0 +1,270 @@
+@font-face {
+    font-family: 'KEANON';
+    src: url('KEANON.ttf') format('truetype');
+  }
+  
+  * {
+    font-family: 'KEANON', Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  
+  body {
+    background-color: #fff8e8;
+    overflow-x: hidden;
+  }
+  
+  /* Navigation Bar */
+  #dado_nav {
+    display: flex;
+    align-items: center;
+    margin: 25px 0 0 120px;
+    margin-right: 35px;
+  }
+  #dado_cart {
+    margin-top: 7px;
+ 
+
+  }
+  .reg-img {
+    width: 32px;
+    height: 32px;
+    margin-right: 35px;
+  }
+  
+  #dado_bar {
+    margin-right: -80px;
+  }
+  #dado_bar:hover{
+    transform:  scale(1.2); /* Moves icon 10px to the right and slightly enlarges it */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+  }
+  #dado_home {
+    margin-left: 16px;
+  }
+  #dado_home:hover{
+    transform:  scale(1.2); /* Moves icon 10px to the right and slightly enlarges it */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+  }
+  #dado_search {
+    position: absolute;
+    right: 10px;
+    width: 300px;
+    max-width: 100%;
+    margin-top: 14px;
+  }
+  h4{
+    position: absolute;
+    color: #674636;
+    margin-top: 20px;
+    left: 45px;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  /* Page Title */
+  .section-title {
+    text-align: center;
+    color: #674636;
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: -20px;
+    margin-left: 90px;
+  }
+  
+  /* Cart Grid */
+  .cart-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 80px auto 60px;
+    padding: 40px;
+    background-color: #fdf3dd;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Each Book Card */
+  .cart-item {
+    background-color: #fff8e8;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(103, 70, 54, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .cart-item:hover {
+    transform: scale(1.02);
+  }
+  
+  .cart-book-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+  }
+  
+  .book-title {
+    font-size: 18px;
+    color: #674636;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .cart-btn {
+    background-color: #674636;
+    color: #fff8e8;
+    border: none;
+    padding: 10px 16px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .cart-btn:hover {
+    background-color: #cdbba6;
+    color: #674636;
+  }
+  
+  .quantity {
+    font-size: 18px;
+    color: #674636;
+    min-width: 30px;
+    text-align: center;
+  }
+  
+  /* Confirm Button */
+  .cart-footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .confirm-btn {
+    padding: 14px 40px;
+    background-color: #674636;
+    color: #fff8e8;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .confirm-btn:hover {
+    background-color: #cdbba6;
+    color: #674636;
+    transform: scale(1.05);
+  }
+  .director-info {
+    font-size: 14px;
+    color: #674636;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 0 10px;
+  }
+  
+  .select-btn {
+    background-color: #674636;
+    color: #fff8e8;
+    border: none;
+    padding: 10px 24px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .select-btn:hover {
+    background-color: #cdbba6;
+    color: #674636;
+    transform: scale(1.05);
+  }
+  #cart-icon {
+    position: absolute;
+    top: 20px;
+    left: 90px; /* عدلها حسب مكان العربة بالضبط */
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    display: none; /* نخليه مخفي أول شيء */
+  }
+  .bulk-controls {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .bulk-controls button {
+    background-color: #674636;
+    color: #fff8e8;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .bulk-controls button:hover {
+    background-color: #cdbba6;
+    color: #674636;
+  }
+  #es_search {
+    width: 250px;
+    height: 40px;
+    margin-top: 4px;
+    margin-left: 1000px;
+    margin-right: 20px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff8e8;
+    color: #674636;
+    font-family: 'KEANON', Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    outline: none;
+    transition: all 0.3s ease;
+    padding-left: 80px;
+    padding-top: 2px;
+    z-index: 666;
+}
+#es_search::placeholder {
+    color: #674636;
+    opacity: 0.8;
+}
+#es_search:hover {
+    background-color: #fbebc7;
+    cursor: pointer;
+}
+
+#es_search:focus {
+    background-color: #fbebc7;
+    box-shadow: 0 0 8px #674636;
+    border-color: #674636;
+}
+
+#search-icon22 {
+    position: absolute;
+    top: 20px;
+    left: 200px;
+}

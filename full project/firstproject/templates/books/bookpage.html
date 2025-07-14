@@ -1,0 +1,193 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Page</title>
+    <link rel="stylesheet" href="{% static 'css/bookpage2.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script src="{% static 'java/bookpage2.js'%}"></script>
+</head> 
+<body>
+    <div class="container">
+        <div class="top-box" style="background-image: url('{{book.photos.url}}');">
+        </div>
+        <div class="left-box">
+            <h1 class="logo">BOOKTY.com</h1>
+            <div class="icons">
+                <img src="{% static 'image/House_02.png'%}" alt="Book" class="home"  onclick="window.location.href='{% url 'books'%}'">
+                <img src="{% static 'image/cart2.png'%}" alt="Book" class="cart" onclick="window.location.href='{% url 'gad-page'%}'"> 
+                <img src="{% static 'image/Bar2.png'%}" alt="User" class="bar"  onclick="window.location.href='{% url 'borrowlist'%}'">
+            </div>
+
+            <img src="{{book.photos.url}}" alt="Book Cover" class="book-cover">
+        </div>
+        <div class="right-box">
+            <a class="book-tab book-info" onclick="showTab('info')">INFO</a>
+            <a class="book-tab book-simi" onclick="showTab('similar')">RECOMMENDED</a>
+            <div class="book-details">
+                <h1 class="book-title">{{book.title}}</h1>
+                <h1 class="type-book">{{book.category}}</h1>
+           </div>
+           <div class="stars" data-rating="4"></div>
+            <div id="info-box">
+               
+                <div class = "content"> 
+                    {{book.description}}
+                </div>
+            </div>
+           
+            <div class = "avalibale" data-available="{{ book.avaliable|yesno:'true,false' }}">
+                <p id="aval" style="display: inline; margin-right: 2px;">Avalibale</p>
+                <img  src="{% static 'image/right2.png'%}" alt="" style="vertical-align: middle;" id="image">
+            </div>
+            <div class="button1" id="button-container" style="{%if book in user.borrowed_books.all %}display:none; {% endif %}">
+                <form method="POST" action="{% url 'borrow_book' book.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="b1" id="b11">Borrow Now!</button>
+                </form>
+            </div>
+
+            <div id="message-container" style="{% if book in user.borrowed_books.all %}display: block;{% else %}display: none;{% endif %}">
+                <h1 id="confirmation-message">BOOK ADDED TO YOUR<br>BORROWING CART</h1>
+                <img src="{% static 'image/right.png'%}" alt="" id="image2">
+            </div>
+
+            
+            <section id="similar-box" style="display: none;">
+                <button class="pre-btn" style="font-size: 24px; padding: 10px 20px;">
+                    <span class="material-symbols-outlined" style="font-size: 70px;">chevron_right</span>
+                </button>
+                  <button class="nxt-btn" style="font-size: 24px; padding: 10px 20px;">
+                    <span class="material-symbols-outlined" style="font-size: 70px;">chevron_right</span>
+                </button>
+                <div class="sliderc">
+                <div class="slider">
+                    <a href="{% url 'book_detail' 54 %}">
+                    <img src="{% static 'image/img2.jpg'%}" class="dado_book" 
+                    data-title="It ends with us" 
+                    data-av="true" 
+                    data-cate="Romance"         
+                    data-desc="Lily falls for a charming neurosurgeon, Ryle, but their relationship turns abusive. As she struggles with her past and present, she recalls her first love, Atlas, who once saved her from pain. When Atlas reappears, Lily is forced to make a heartbreaking choice. The novel explores the cycle of abuse, love, and strength. In the end, Lily chooses to break the cycle for her daughter’s future"
+                    
+                    >
+                    </a>
+                </div>
+                <div class="slider" >
+                    <a href="{% url 'book_detail' 28 %}">
+
+                    <img src="{% static 'image/fan1.jpg'%}" class="dado_book" 
+                    data-title="A Wave of Fates"  
+                    data-av="true" 
+                    data-cate="FANTASY" 
+                    data-desc="is a gripping fantasy novel where ancient powers clash and heroes struggle to shape their world's destiny. As dark secrets and deadly conspiracies unfold, the characters are drawn into a battle that could change everything. Blending magic, action, and emotion, this story takes readers on an unforgettable journey through a richly built world"
+                    
+                    </a>
+                </div>
+                <div class="slider">
+                    <a href="{% url 'book_detail' 31 %}">
+
+                    <img src="{% static 'image/fan4.jpg'%}" class="dado_book" 
+                    data-title="Zekola land"  
+                    data-av="true" 
+                    data-cate="FANTASY" 
+                    data-desc=" is a captivating fantasy novel about a mysterious land where people trade not with money, but with their intelligence. When a young man accidentally finds himself in Zikola, he must navigate a world ruled by wisdom, sacrifice, and danger. Full of suspense and imagination, the story explores the true value of thought and emotion."       
+                    
+                    </a>
+                </div>
+                <div class="slider">
+                    <a href="{% url 'book_detail' 29 %}">
+
+                    <img src="{% static 'image/fan2.jpg'%}" class="dado_book" 
+                    data-title="CARAVAL"  
+                    data-av="true" 
+                    data-cate="FANTASY" 
+                    data-desc="Caraval is a fantasy book series by Stephanie Garber that follows two sisters, Scarlett and Donatella, as they become entangled in a magical, 
+                    high-stakes game. The story begins when Scarlett receives an invitation to Caraval, 
+                    a mysterious performance where the audience participates. As the sisters navigate illusions and secrets, they uncover hidden truths about their past and the game’s  enigmatic master, Legend. The series blends romance, danger,
+                     and wonder in a vividly imaginative world. Each book deepens the mystery, exploring love, sacrifice, and the cost of chasing dreams.
+                "
+                    
+                    </a>
+                </div>
+                <div class="slider">
+                     <a href="{% url 'book_detail' 37 %}">
+
+                    <img src="{% static 'image/rom5.jpg'%}" class="dado_book" 
+                    data-title="THE FINE PRINT"  
+                    data-av="true" 
+                    data-cate="ROMANCE" 
+                    data-desc="Set in a Disney-like theme park empire, grumpy CEO Rowan and optimistic dreamer Zahra clash and connect while working together, discovering love, ambition, and healing. "
+                   
+                     </a>
+                </div>
+                <div class="slider">
+                     <a href="{% url 'book_detail' 47 %}">
+
+                    <img src="{% static 'image/thr5.jpg'%}" class="dado_book" 
+                    data-title="Arsene Lupin" 
+                    data-av="true" 
+                    data-cate="Thriller" 
+                    data-desc=" The legendary detective Sherlock Holmes faces off against the cunning thief Arsène Lupin. Lupin challenges Holmes by committing high-profile thefts and leaving behind cryptic clues. Holmes, with his sharp intellect, attempts to capture the elusive thief. Their battle of wits leads to a thrilling game of cat and mouse. The novel is a classic clash between two brilliant minds"
+                    
+                     </a>
+                </div>
+                <div class="slider">
+                    <a href="{% url 'book_detail' 49 %}">
+
+                    <img src="{% static 'image/drama2.jpg'%}" class="dado_book" 
+                    data-title="Little Women"  
+                    data-av="true" 
+                    data-cate="DRAMA" 
+                    data-desc="is a timeless novel about the four March sisters — Meg, Jo, Beth, and Amy — growing up during the American Civil War. It follows their personal struggles, dreams, and relationships as they navigate life, love, and loss. The novel explores themes of family, sacrifice, and the pursuit of personal happiness, making it a heartwarming and enduring story."
+                    
+                    </a>
+                </div>
+                <div class="slider">
+                     <a href="{% url 'book_detail' 44 %}">
+                    <img src="{% static 'image/thr2.jpg'%}" class="dado_book" 
+                    data-title="The Girl with the dragon Tattoo"  
+                    data-av="false" 
+                    data-cate="Thriller" 
+                    data-desc="Journalist Mikael and hacker Lisbeth Salander team up to solve a decades-old mystery involving a powerful family, uncovering corruption, violence, and dark secrets."
+                    
+                     </a>
+                </div>
+              </div>
+              
+            </section>
+            
+            <script>
+                function handle_ava(aval55){
+                    const bookAvaliabilityEl = document.getElementById("image");
+                    const bookava = document.getElementById("aval");
+                    
+                    if(aval55){
+                        if (bookAvaliabilityEl) bookAvaliabilityEl.src = "{% static 'image/right2.png' %}";
+                        if (bookava) bookava.textContent = "Available";
+                        document.getElementById("b11").classList.add('active');
+                    }
+                    else{
+                        if (bookAvaliabilityEl) bookAvaliabilityEl.src = "{% static 'image/wrong.png' %}";
+                        if (bookava) bookava.textContent = "Not Available";
+                        document.getElementById("b11").classList.remove('active');
+                    }
+                }
+
+                window.addEventListener('DOMContentLoaded', function() {
+                    const availableDiv = document.querySelector('.avalibale');
+                    const availableStr = availableDiv.getAttribute('data-available');
+                    const available = availableStr === 'true'; // converts string to boolean
+                    handle_ava(available);
+                });
+                
+            </script>
+
+
+
+
+      </div
+</body>
+</html>

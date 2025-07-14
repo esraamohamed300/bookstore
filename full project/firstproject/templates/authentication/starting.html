@@ -1,0 +1,44 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOOKTY.com</title>
+    <link rel="stylesheet" href="{% static 'css/starting.css'%}">
+    <body style="background: url('{% static 'image/final222.png' %}') no-repeat; background-size: 1589px 780px; background-color: #242424;">
+
+</head>
+
+<body>
+
+    <div class="header">BOOKTY.com</div>
+
+    <div class="hero">
+        <h1><br>Welcome to<br> BOOKTY.com - Where<br>Great Stories Begin</h1>
+        <p>
+             Looking for your next great read? At Bookty.com, you don’t<br> just browse books—you borrow them with a click. Explore<br> our 
+             growing library of must-reads, hidden gems, and<br> trending titles. Whether you love fantasy, thrillers, romance,<br> or biographies, 
+             there’s something waiting for you.<br><br>
+        </p>
+        <div class = "button1">
+            <a href="{% url 'signup'%}" class="b1"> Get started</a>
+        </div>
+        <div class = "button2">
+            <a href="{% url 'login'%}" class="b2"> Login</a>
+        </div>
+        <div class = "button3">
+            <a href="{% url 'signup'%}" class="b3"> Sign up</a>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p class="logo">BOOKTY.com</p>
+        
+        <p><br><br>© 2025 BOOKTY.com. All rights reserved.</p>
+        <p>Designed by ABDALLAH GAMAL</p>
+    </footer>
+
+</body>
+</html>

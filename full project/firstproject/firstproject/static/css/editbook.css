@@ -1,0 +1,169 @@
+@font-face {
+    font-family: 'KEANON';
+    src: url('KEANON.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'KEANON', Arial, Helvetica, sans-serif;
+}
+
+
+body {
+    margin: 0;
+    background: #fff8e8;
+    padding: 15px;
+}
+
+#logout {
+
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+    color: #674636;
+    gap: 8px;
+    margin-bottom: 20PX;
+    cursor: pointer;
+}
+a{
+    color: #674636;
+    font-size: 10px;
+}
+
+h5 {
+    margin-top: 10px;
+}
+
+
+.container {
+    max-width: 1000px;  
+    background: #fff8e8;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px #674636;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: -15px;
+    margin-left: 250px;
+    margin: 12px auto 20px auto;
+}
+
+.es_box1 {
+    flex: 1;
+    margin-right: 33px;
+}
+
+.es_box2 {
+    flex: 1;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: #674636;
+    margin-bottom: 32px;
+}
+
+label {
+    display: block;
+    margin-top: 16px;
+    color: #674636;
+    font-size: 13px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12.8px;
+    margin-top: 4.8px;
+    border: 1px solid #674636;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fff8e8;
+    color: #674636;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+input:hover,
+textarea:hover {
+    border-color: #8a614d;
+    box-shadow: 0 0 8px rgba(103, 70, 54, 0.4);
+}
+
+button {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 14.4px;
+    background-color: #674636;
+    color: #fff8e8;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+
+    transform: scale(1.05);
+    background-color: #8a614d;
+
+}
+
+#es_animi{
+
+    max-width: 100%;
+    width: 600px;
+    height: 650px;
+    float: right;
+    border-radius: 30px;
+    margin-right: -4px;
+    box-shadow: 0 4px 20px rgba(103, 70, 54, 0.5);
+    animation: dado-anmi2 1s ease-out forwards;
+}
+
+@keyframes rainDrop {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.form-group {
+    animation: rainDrop 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+
+.form-group:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.form-group:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.form-group:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.form-group:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.form-group:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.form-group:nth-child(6) {
+    animation-delay: 0.6s;
+}

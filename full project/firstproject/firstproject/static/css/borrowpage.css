@@ -1,0 +1,172 @@
+/* General styles */
+@font-face {
+    font-family: 'KEANON';
+    src: url('KEANON.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@keyframes fadeInPage {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+
+* {
+    font-family: 'KEANON', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #fff8e8;
+    padding: 35px;
+    margin: 0px;
+    overflow-x: hidden;
+    animation: fadeInPage 1s ease-out forwards;
+
+}
+
+#es_nav {
+    margin-top: 25px;
+    display: flex;
+    margin-left: 120px;
+}
+
+.reg-img {
+    width: 35px;
+    height: 35px;
+    margin-right: 25px;
+}
+
+#es_bar {
+    margin-top: -21px;
+    margin-right: -80px;
+}
+
+#es_cart {
+    margin-top: -21px;
+}
+
+#es_home {
+    margin-top: -21px;
+
+    margin-left: 16px;
+}
+
+#es_search {
+    /*margin-top: -15px;
+    height: 27px;
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    max-width: 100%;*/
+    max-width: 100%;
+    height: 35px;
+    margin-top: -15px;
+    border-radius: 15px;
+    border-color: #674636;
+    background-color: #fff8e8;
+    width: 200px;
+    margin-right: 20px;
+    color: #674636;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin-left: 850px;
+}
+
+h4 {
+    position: absolute;
+    color: #674636;
+    margin-top: -10px;
+    left: 0px;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+#es_head {
+    color: #674636;
+    font-size: 25px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+
+.dado_toptrend {
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+    gap: 70px;
+
+}
+
+figure {
+    margin: 0;
+    transition: all 0.3s ease;
+
+}
+
+
+.dado_book {
+
+    width: 190px;
+    height: 265px;
+    border-radius: 7px 7px 0px 0px;
+    box-shadow: 5PX 5px 10px #674636;
+    margin-bottom: 0;
+    display: block;
+}
+
+figcaption {
+
+
+    transition: all 0.3s ease;
+    color: #fff8e8;
+    text-align: center;
+    background-color: #674636;
+    width: 190px;
+    font-size: 11px;
+    height: 40px;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 5PX 5px 10px #674636;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+
+
+.fig_hover:hover {
+
+    transform: scale(1.05);
+    cursor: pointer;
+
+}
+
+#es_search:hover {
+    background-color: #fbebc7;
+    cursor: pointer;
+}
+
+.reg-img:hover {
+    transform:  scale(1.2); /* Moves icon 10px to the right and slightly enlarges it */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+    cursor: pointer;
+}
+
+.esraa_book {
+    width: 190px;
+    height: 265px;
+    border-radius: 7px 7px 0px 0px;
+    box-shadow: 5PX 5px 10px #674636;
+    margin-bottom: 0;
+    display: block;
+    opacity: 0.4;
+}

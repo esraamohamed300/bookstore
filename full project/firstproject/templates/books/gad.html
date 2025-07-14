@@ -1,0 +1,302 @@
+{% load static%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home-BOOKTY.com</title>
+  <link rel="stylesheet" href="{% static 'css/gad.css'%}">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="{% static 'java/gad.js'%}"></script>
+</head>
+
+<body class="body">
+  <!-- Navigation Bar -->
+  <div id="dado_nav">
+    <img src="{% static 'image/house.png'%}" class="reg-img" id="dado_home">
+    <img src="{% static 'image/cart.png'%}" class="reg-img" id="dado_cart" onclick="window.location.href='{% url 'gad-page'%}'">
+    <img src="{% static 'image/bar.png'%}" class="reg-img" id="dado_bar" onclick="window.location.href='{% url 'borrowlist'%}'">
+    <img src="{% static 'image/logout.png'%}" class="reg-img" id="dado_logout" style="margin-left: 1200px; width: 3%; height: 3%;" onclick="window.location.href='{% url 'login'%}'">
+
+    <h4>BOOKTY.com</h4>
+  </div>
+
+  <!-- First Section -->
+  <div class="First">
+    <div class="Gad0">
+      <p>DISCOVER OUR LATEST BOOKS</p>
+    </div>
+    
+    <div class="carousel-container">
+     
+    
+      <div class="carousel">
+        <div class="book active">
+          <a href="{% url 'book_detail' 32 %}">
+          <img src="{% static 'image/fan.jpg'%}" class="dado_book" data-author="Amr Abdelhameed" data-title="Rules of jarteen" data-av="true"
+          data-cate="FANTASY"
+          data-desc=" is a gripping fantasy novel set in a mysterious land governed by ancient, unbreakable laws. When a young man enters Gartin, he discovers secrets hidden behind the rules and faces choices that could change everything. Full of mystery, tension, and powerful emotions, the story explores loyalty, freedom, and the price of truth"
+          onclick="handleClick(this)">
+          </a>
+        </div>
+        <div class="book">
+          <a href="{% url 'book_detail' 28 %}">
+          <img src="{% static 'image/fan1.jpg'%}" class="dado_book" 
+          data-author="Aracne Fallen" 
+          data-title="A Wave of Fates" 
+          data-av="true"
+          data-cate="FANTASY"
+          data-desc="is a gripping fantasy novel where ancient powers clash and heroes struggle to shape their world's destiny. As dark secrets and deadly conspiracies unfold, the characters are drawn into a battle that could change everything. Blending magic, action, and emotion, this story takes readers on an unforgettable journey through a richly built world"
+          onclick="handleClick(this)">
+          </a>
+        </div>
+        <div class="book">
+          <a href="{% url 'book_detail' 30 %}">
+          <img src="{% static 'image/fan3.jpg'%}" class="dado_book" 
+          data-author="Lauren Roberts" 
+          data-title="Powerless" 
+          data-av="true"
+          data-cate="FANTASY"
+          data-desc="Is a thrilling fantasy novel about a girl born without powers in a world where magic decides everything. Fighting against fate, secrets, and impossible odds, she must find her own strength to survive. Full of danger, romance, and rebellion, Powerless is a story about courage when the world says you have none."
+          onclick="handleClick(this)">
+          </a>
+        </div>
+        <div class="book">
+          <a href="{% url 'book_detail' 31 %}">
+          <img src="{% static 'image/fan4.jpg'%}" class="dado_book" 
+        data-author="Amr Abdelhameed" 
+        data-title="Zekola land" 
+        data-av="true"
+        data-cate="FANTASY" 
+        data-desc=" is a captivating fantasy novel about a mysterious land where people trade not with money, but with their intelligence. When a young man accidentally finds himself in Zikola, he must navigate a world ruled by wisdom, sacrifice, and danger. Full of suspense and imagination, the story explores the true value of thought and emotion."     
+        onclick="handleClick(this)">
+            
+        </div>
+        <div class="book">
+        <a href="{% url 'book_detail' 38 %}">
+          <img src="{% static 'image/hor1.jpg'%}" class="dado_book" 
+          data-author="Stephen King" 
+          data-title="IT" 
+          data-av="true" 
+          data-cate="HORROR"
+          data-desc="is a chilling horror novel about a group of childhood friends who face an ancient, shape-shifting evil that preys on their deepest fears. Set in the haunting town of Derry, Maine, the story weaves between past and present as they fight a terror that never truly dies. Dark, psychological, and unforgettable, It explores fear, friendship, and the scars that last a lifetime"
+          onclick="handleClick(this)">
+        </a>
+        </div>
+        <div class="book">
+          <a href="{% url 'book_detail' 39 %}">
+          <img src="{% static 'image/hor2.jpg'%}" 
+          class="dado_book" 
+          data-author="Ahmed Younis" 
+          data-title="Nader Fouda" 
+          data-av="true"
+          data-cate="HORROR"
+          data-desc=" is a thrilling horror novel following a journalist who investigates supernatural mysteries hidden in the shadows of everyday life. As he digs deeper, he uncovers terrifying secrets and faces forces beyond imagination. Blending suspense, folklore, and chilling encounters, Nader Foda delivers a gripping journey into the unknown."
+          onclick="handleClick(this)">
+          </a>
+        </div>
+        <div class="book">
+          <a href="{% url 'book_detail' 41 %}">
+          <img src="{% static 'image/hor4.jpg'%}" 
+          class="dado_book" 
+          data-author="Hassan ELGendi" 
+          data-title="Smile You Are Dead" 
+          data-av="true"
+          data-cate="HORROR" 
+          data-desc=" is a gripping horror novel where a group of strangers is trapped inside a cursed house filled with terrifying secrets. As fear and paranoia grow, they must face the horrors hidden within — and within themselves. Full of suspense, psychological fear, and shocking twists, Smile, You're Dead is a chilling journey into pure terror.
+          
+          " onclick="handleClick(this)">
+          </a>
+        </div>
+        
+        
+      </div>
+    
+     
+    </div>
+    <button class="arrow left" style=" padding: 10px 20px;" onclick="prevBook()">
+      <img src="{% static 'image/Chevron_Left.png'%}" class="material-symbols-outlined" >
+    </button>
+    <button class="arrow right" style=" padding: 10px 20px;" onclick="nextBook()">
+      <img src="{% static 'image/Chevron_Left.png'%}" class="material-symbols-outlined" >
+    </button>
+    
+    
+    
+    
+  </div>
+  </div>
+
+  <!-- Trending Section -->
+  <div class="Trinding">
+    <p id="gg">TRENDING</p>
+    <div class="trending-box" id="trendingBox">
+      <img src="{% static 'image/rr.jpg'%}" alt="Book Image" id="trendingImg" class="trending-img">
+      <div class="trending-text">
+        <p id="trendingDescription">
+          GAME OF THRONES IS THE FIRST BOOK IN THE A SONG OF ICE AND FIRE SERIES BY GEORGE R.R. MARTIN, SET IN THE BRUTAL AND POLITICALLY CHARGED WORLD OF WESTEROS. THE STORY UNFOLDS ACROSS SEVERAL NOBLE HOUSES, INCLUDING THE STARKS OF THE NORTH, THE LANNISTERS OF THE WEST, AND THE TARGARYENS, WHO SEEK TO RECLAIM THE IRON THRONE. WITH POLITICAL INTRIGUE, COMPLEX CHARACTERS, AND SHIFTING ALLEGIANCES, THE NOVEL EXPLORES THEMES OF POWER, HONOR, BETRAYAL, AND SURVIVAL. AT THE HEART OF THE NARRATIVE IS THE STARK FAMILY, LED BY EDDARD STARK 
+          <span class="learn-more">LEARN MORE</span>
+        </p>
+      </div>
+    </div>
+  
+    <div class="trending-buttons">
+      <button class="arrow left2" onclick="prevTrending()"> <img src="{% static 'image/Chevron_Left2.png'%}" > </button>
+      <button class="arrow right2" onclick="nextTrending()">  <img src="{% static 'image/Chevron_Left2.png'%}" > </button>
+    </div>
+  </div>
+  
+  
+  <div class="Discover-more">
+    <img src="{% static 'image/G.png'%}" alt="">
+    <button class="btn" onclick="window.location.href='{% url 'html'%}'">Discover More</button>
+
+  </div>
+
+  <!-- Scroll Animation Image -->
+  <div class="scroll-footer">
+    <div class="animation" >
+      <img src="{% static 'image/Group 22.png'%}" alt="Book 1" class="imgForInformaition" >
+      <p class="textForInformaition">BOOKTY.com</p>
+    </div>
+    <div class="socialmedia-icon">
+      <img src="{% static 'image/X.png'%}" alt="X">
+      <img src="insta.png" alt="Instgram">
+      <img src="{% static 'image/facebook.png'%}" alt="facebook" class="social-icon">
+      <img src="{% static 'image/thread.png'%}" alt="thread">
+
+    </div>
+    <div class="footer-text">
+      <p>© 2023 BOOKTY.com. All rights reserved.</p>
+      <p>Privacy Policy | Terms of Service</p>
+      <p>Designed by Abdallah gamal</p>
+    </div>
+    <div class="footer-text2">
+      <p>BOOKTY.com<br>is a fictional website created for educational purposes.<br> Any resemblance to real websites or entities is purely coincidental.</p>
+
+
+    </div>
+
+  </div>
+
+  <script>
+    const carousel = document.querySelector('.carousel');
+const books = document.querySelectorAll('.book');
+let currentIndex = 0; // Tracks the center book in the visible set
+
+function updateCarousel() {
+    const bookWidth = 230; // Width of each book
+    const spacing = 10; // Space between books
+    const totalBookWidth = bookWidth + spacing;
+
+    const containerWidth = carousel.parentElement.offsetWidth+-500;
+    const centerPosition = (containerWidth / 2) - (bookWidth / 2);
+
+    // Calculate the offset to center the currentIndex book
+    let offset = -(currentIndex * totalBookWidth) + centerPosition;
+
+    // Apply the transform to move the carousel
+    carousel.style.transform = `translateX(${offset}px)`;
+    carousel.style.transition = 'transform 0.5s ease';
+
+    // Update the active, prev, and next classes
+    books.forEach((book, index) => {
+        book.classList.remove('active', 'prev', 'next');
+        if (index === currentIndex) {
+            book.classList.add('active'); // Center book
+        } else if (index === currentIndex - 1) {
+            book.classList.add('prev'); // Previous book
+        } else if (index === currentIndex + 1) {
+            book.classList.add('next'); // Next book
+        }
+    });
+}
+
+function moveCarousel(direction) {
+    currentIndex += direction;
+
+    // Ensure the index stays within bounds
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex > books.length - 1) currentIndex = books.length - 1;
+
+    updateCarousel();
+}
+
+function prevBook() {
+    moveCarousel(-1); // Move to the previous book
+}
+
+function nextBook() {
+    moveCarousel(1); // Move to the next book
+}
+
+// Initialize the carousel
+updateCarousel();
+    
+    </script>
+    <script>
+      // بيانات الكتب (صور + نصوص)
+      const trendingBooks = [
+        {
+          img: "{% static 'image/rr.jpg' %}",
+          description: `GAME OF THRONES IS THE FIRST BOOK IN THE A SONG OF ICE AND FIRE SERIES BY GEORGE R.R. MARTIN, SET IN THE BRUTAL AND POLITICALLY CHARGED WORLD OF WESTEROS. THE STORY UNFOLDS ACROSS SEVERAL NOBLE HOUSES, INCLUDING THE STARKS OF THE NORTH, THE LANNISTERS OF THE WEST, AND THE TARGARYENS, WHO SEEK TO RECLAIM THE IRON THRONE. WITH POLITICAL INTRIGUE, COMPLEX CHARACTERS, AND SHIFTING ALLEGIANCES, THE NOVEL EXPLORES THEMES OF POWER, HONOR, BETRAYAL, AND SURVIVAL. AT THE HEART OF THE NARRATIVE IS THE STARK FAMILY, LED BY EDDARD STARK ... <span class="learn-more">LEARN MORE</span> `
+          
+        },
+        {
+          img: "{% static 'image/fan1.jpg' %}",
+          description: `AN EPIC BEGINNING TO A FANTASY SERIES, A WEAVE OF FATES INTRODUCES A WORLD FILLED WITH MAGIC, ANCIENT PROPHECIES, AND HIDDEN DESTINIES. THE STORY FOLLOWS STRONG-WILLED CHARACTERS WHO MUST NAVIGATE POLITICAL INTRIGUE, SECRET WARS, AND THEIR OWN INNER STRUGGLES. AS POWERFUL FORCES AWAKEN FROM A LONG DORMANCY, ALLIANCES ARE TESTED AND ENEMIES ARE FORGED IN A LAND WHERE EVERY DECISION WEAVES A NEW THREAD INTO THE TAPESTRY OF FATE. THIS FIRST INSTALLMENT SETS THE STAGE FOR A GRAND SAGA OF COURAGE ...<span class="learn-more">LEARN MORE</span> `
+        },
+        {
+          img: "{% static 'image/hor1.jpg' %}",
+          description: `THE PHOENIX KING IS A CAPTIVATING TALE OF REBIRTH, LEGACY, AND UNYIELDING POWER. SET IN A LAND ON THE BRINK OF WAR, THE STORY FOLLOWS A RULER STRUGGLING TO BALANCE TRADITION AND CHANGE, AS ANCIENT POWERS AWAKEN TO CHALLENGE HIS REIGN. THROUGH BETRAYALS, SACRIFICES, AND IMPOSSIBLE CHOICES, THE CHARACTERS MUST DECIDE WHETHER TO PRESERVE THE PAST OR FORGE A NEW FUTURE. FILLED WITH RICH WORLDBUILDING AND COMPLEX RELATIONSHIPS, THE NOVEL EXPLORES THE TRUE COST OF POWER AND WHAT IT MEANS TO BE A KING.<span class="learn-more">LEARN MORE</span>`
+        },
+        // تقدر تضيف كتب تانيين هنا
+      ];
+      
+      let trendingIndex = 0;
+      
+      // دالة لتحديث المحتوى
+      function updateTrending() {
+        const trendingImg = document.getElementById('trendingImg');
+        const trendingDescription = document.getElementById('trendingDescription');
+      
+        //animation 
+        trendingImg.style.transition = 'opacity 0.5s ease';
+        trendingDescription.style.transition = 'opacity 0.5s ease';
+        trendingImg.style.opacity = 0;
+        trendingDescription.style.opacity = 0;
+
+        setTimeout(() => {
+          // update content
+          trendingImg.src = trendingBooks[trendingIndex].img;
+          trendingDescription.innerHTML = trendingBooks[trendingIndex].description;
+
+          // fading in
+          trendingImg.style.opacity = 1;
+          trendingDescription.style.opacity = 1;
+        }, 300); // for the time of the animation
+      }
+      
+      // التالي
+      function nextTrending() {
+        trendingIndex = (trendingIndex + 1) % trendingBooks.length;
+        updateTrending();
+      }
+      
+      // السابق
+      function prevTrending() {
+        trendingIndex = (trendingIndex - 1 + trendingBooks.length) % trendingBooks.length;
+        updateTrending();
+      }
+      
+      // أول مرة الصفحة تفتح
+      updateTrending();
+      </script>
+      
+    
+
+  
+ 
+</body>
+</html>

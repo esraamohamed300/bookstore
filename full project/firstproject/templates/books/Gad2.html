@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart - BOOKTY.com</title>
+  <link rel="stylesheet" href="{% static 'css/Gad2.css' %}">
+</head>
+<body class="body">
+
+  <!-- Navigation Bar -->
+  <div id="dado_nav">
+    <img src="{% static 'image/house.png' %}" class="reg-img" id="dado_home" onclick="window.location.href='{% url 'books' %}'">
+    <a href="{% url 'gad-page'%}"><img src="{% static 'image/cart.png' %}" class="reg-img" id="dado_cart"></a>
+    <a href="{% url 'borrowlist'%}"><img src="{% static 'image/bar.png' %}" class="reg-img" id="dado_bar" style="margin-top:10px"></a>
+
+    <h4>BOOKTY.com</h4>
+    <input type="search" id="es_search" placeholder="Search book">
+  </div>
+
+  <!-- Page Title -->
+  <h2 class="section-title">Select Your Book</h2>
+
+  {% if borrowed_books %}
+  <form method="POST" action="{% url 'borrow_book2' %}">
+    {% csrf_token %}
+    <div class="cart-container">
+      {% for book in borrowed_books %}
+        <div class="cart-item">
+          <img src="{{ book.photos.url }}" alt="{{ book.title }}" class="cart-book-img" />
+          <h3 class="book-title">{{ book.title }}</h3>
+          <div class="controls">
+            <input type="radio" name="selected_book" value="{{ book.id }}" required>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="cart-footer">
+      <button type="submit" class="confirm-btn">Confirm Selection</button>
+    </div>
+  </form>
+  {% else %}
+    <p>No books available.</p>
+  {% endif %}
+
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('es_search');
+    const cartItems = document.querySelectorAll('.cart-item');
+
+    // رسالة "لا يوجد نتائج"
+    const noResultsMessage = document.createElement('div');
+    noResultsMessage.textContent = 'No books found';
+    noResultsMessage.style.color = '#674636';
+    noResultsMessage.style.fontSize = '20px';
+    noResultsMessage.style.textAlign = 'center';
+    noResultsMessage.style.marginTop = '20px';
+    noResultsMessage.style.display = 'none';
+    document.querySelector('.cart-container').appendChild(noResultsMessage);
+
+    searchInput.addEventListener('input', function () {
+      const searchTerm = searchInput.value.toLowerCase();
+      let foundAny = false;
+
+      cartItems.forEach(item => {
+        const titleElement = item.querySelector('.book-title');
+        const titleText = titleElement.innerText.toLowerCase();
+
+        if (titleText.includes(searchTerm)) {
+          item.style.display = 'flex';
+          foundAny = true;
+
+          // إزالة التمييز السابق
+          titleElement.innerHTML = titleElement.innerText;
+
+          if (searchTerm.length > 0) {
+            const regex = new RegExp(`(${searchTerm})`, 'gi');
+            titleElement.innerHTML = titleElement.innerText.replace(regex, '<mark>$1</mark>');
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      noResultsMessage.style.display = foundAny ? 'none' : 'block';
+    });
+  });
+</script>
+
+</html>

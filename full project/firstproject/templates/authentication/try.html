@@ -1,0 +1,55 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Account</title>
+  <link rel="stylesheet" href="{% static 'css/try.css'%}">
+</head>
+<body>
+  <div class="container">
+    <div class="left-box">
+      <h2>Create Account</h2>
+
+     <form method="post" action="{% url 'signup' %}">
+      {% csrf_token %}
+      <div class="toggle-group">
+        <input type="radio" id="speed" name="choice" class="toggle-radio" value="admin" checked>
+        <label for="speed" class="toggle-option">ADMIN</label>
+
+        <input type="radio" id="quality" name="choice" class="toggle-radio" value="user">
+        <label for="quality" class="toggle-option">USER</label>
+      </div>
+
+      <div class="name-fields">
+        <input type="text" placeholder="First Name" required name="first_name">
+        <input type="text" placeholder="Last Name" required name="last_name">
+      </div>
+      <div class="name-fields2">
+                <input type="email" placeholder="Email" required style="margin-top:10px; margin-bottom:20px ;" name="email">
+                <input type="password" placeholder="Password" required style="margin-top:10px; margin-bottom:20px ;" name="password">
+                <input type="password" placeholder="Confirm Password" required style="margin-top:10px; margin-bottom:20px ;">
+      </div>
+    
+         <button class="sign-up-btn" onclick="window.alert('Account Created Successfully..Go to Login page')" >SIGN UP</button>
+     
+           
+        </div>
+    </form>
+    <div class="right-box">
+        <div class="image-container">
+            <img src="{% static 'image/signup.png'%}" alt="Image" class="mainimage">
+
+        </div>
+    <a href="{% url 'login' %}">
+      <button type="button" class="sign_in">login</button>
+    </a>
+
+
+
+    <h1>have an <br>account?</h1>
+    </div>
+  </div>
+</body>
+</html>

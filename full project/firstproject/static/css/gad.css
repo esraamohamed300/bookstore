@@ -1,0 +1,474 @@
+@font-face {
+    font-family: 'KEANON';
+    src: url('KEANON.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @keyframes fadeInPage {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  * {
+    font-family: 'KEANON', Arial, Helvetica, sans-serif;
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   
+  }
+  .body {
+    background-color: #fff8e8;
+    overflow-x: hidden;
+    animation: fadeInPage 1s ease-out forwards;
+
+  }
+  #dado_nav{
+    margin-top: 30px;
+    display: flex;
+    margin-left: 120px;
+}
+  
+  .reg-img {
+    margin-top: 5px;
+
+    width: 35px;
+    height: 35px;
+    margin-right: 30px;
+  }
+  
+  #dado_bar {
+    margin-top: 5px;
+    margin-right: -80px; 
+    
+  }
+  #dado_bar:hover{
+    transform:  scale(1.2); 
+    transition: transform 0.3s ease, color 0.3s ease; 
+  }
+  #dado_home:hover{
+    transform:  scale(1.2); 
+    transition: transform 0.3s ease, color 0.3s ease; 
+  }
+
+
+  #dado_logout:hover{
+    transform:  scale(1.5); 
+    transition: transform 0.3s ease, color 0.3s ease; 
+    z-index: 500;
+  }
+
+  
+  #dado_home {
+    margin-top: 5px;
+    margin-left: 16px;
+  }
+  
+  #dado_search{
+    margin-top: 14px;
+    height: 27px;
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    max-width: 100%;
+ 
+}
+  
+h4{
+  position: absolute;
+  color: #674636;
+  margin-top: 20px;
+  left: 45px;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}
+  /*
+  h4:hover {
+    color: #674636;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #fff8e8;
+    transition: 0.3s;
+    transform: scale(1.1)
+
+  }
+    */
+  
+  /* ============================= */
+  
+  .First {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 130px;
+    padding: 0 50px;
+    gap: 80px;
+  }
+  
+  .Gad0 {
+    text-align: left;
+    font-size: 38px;
+    color: #674636;
+    width: 500px;
+    line-height: 1.3;
+    margin-left: 140px;
+  }
+  
+  /* Carousel */
+  
+  .carousel-container {
+    position: relative;
+    left: -50px;
+    overflow: hidden;
+    width: 50%;
+    height: 400px; 
+    padding-left: 0px;
+  }
+  .carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .book {
+    transform: scale(0.8); /* الكتب الصغيرة */
+    opacity: 0.6;
+    transition: all 0.5s ease-in-out;
+    margin: 0 20px;
+    margin-top: 50px;
+  }
+  
+  .book.active {
+    transform: scale(1.2); /* الكتاب الكبير */
+    opacity: 1;
+    z-index: 10;
+  }
+  
+  .book img {
+    width: 200px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .arrow {
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #674636;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .arrow.left {
+    left: 45%;
+    top: 670px;
+  }
+  .arrow.left img {
+    width: 60px;
+    rotate: 180deg;
+  }
+  .arrow.right {
+    right: 44%;
+    top: 670px;
+
+  }
+  .arrow.right img {
+    width: 60px;
+  }
+  .arrow.left2 img {
+    position: absolute;
+    top: 220px;
+    left: -14px;
+    width: 50px;
+    rotate: 180deg;
+  }
+  .arrow.right2 img {
+    position: absolute;
+    left: 50px;
+    top: 220px;
+    width: 50px;
+  }
+.Trinding
+{
+   background-color: #674636;
+   position: relative;
+   border-radius: 120px;
+   margin-top: 300px;
+   padding: 350px 70px;
+   padding-bottom: 0px;
+   
+  }
+  .Trinding p
+  {
+    color: #fff8e8;
+    font-size: 30px;
+    background-color: #674636; 
+    font-weight: bold;
+    margin: 0;
+    
+  }
+  #gg
+  {
+    position: absolute;
+    top: 90px; 
+    left: 70px; 
+    text-align: center;
+    right: 0;
+    font-size: 40px;
+  }
+  #ggg
+  {
+    position: absolute;
+    top: 250px;
+    font-size: 15px;
+    text-align: left;
+    justify-content: center;
+  }
+  .trending-box {
+    position: relative;
+    top: -50px;
+    background-color: #674636;
+    border-radius: 100px;
+    padding: -200px; 
+    display: flex; 
+    max-width: 1200px; 
+    gap: 30px; 
+    align-items: center; 
+    justify-content: space-between; 
+   
+  }
+  
+  .trending-img {
+    width: 300px;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    position: relative;
+    top: -1205px;
+    left: 20px;
+    margin-left: 20px;
+  }
+  .trending-img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .trending-text {
+    color: #fff8e8;
+    padding-right:800px;
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: left; 
+    max-width: 600px; 
+    background-color: #674636;
+  }
+  
+  .trending-text h2 {
+    color: #fff8e8;
+    background-color: #674636;
+    font-size: 9px;
+    margin-bottom: 15px;
+  }
+  
+  .trending-text p {
+    color: #fff8e8;
+    
+    
+    font-size: 12px;
+    line-height: 1.8;
+    width: 900px;
+    background-color: #674636;
+    text-align:center;
+    
+  }
+  
+  .learn-more {
+    font-weight: bold;
+    color: #cdbba6;
+    background-color: #674636;
+    cursor: pointer;
+  }
+  .learn-more:hover {
+    color: #fff8e8;
+    background-color: #674636;
+    text-decoration: none;
+    transform: scale(1.1);
+    transition: 0.3s;
+    
+
+  }
+  .imgForInformaition {
+    width: 1592px;
+    
+    display: block;
+    margin-top: 250px;
+    margin-left: 0px;
+  }
+  
+  .animation {
+    position: absolute;
+    opacity: 1;
+    animation: fadeIn 2s ease-in-out forwards;
+    
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+
+    }
+    100% {
+      opacity: 1;
+    }
+
+  }
+  .textForInformaition{
+ position: absolute; top: 50%; left: 50%;
+ margin-top: 70px;
+ margin-left: 20px;
+ transform: translate(-50%, -50%);
+ color: #fff8e8; 
+ font-size: 25px;
+ text-align: center;
+  }
+
+.socialmedia-icon
+{
+ position: absolute;
+ text-align: center;
+ 
+  margin-top: 500px;
+  margin-left: 710px;
+
+
+}
+.socialmedia-icon img
+{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  margin-left: 25px;
+  margin-top: 50px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+.socialmedia-icon img:hover
+{
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-text
+{
+  position: absolute;
+  margin-top: 760px;
+  margin-left: 600px;
+  color: #fff8e8;
+  font-size: 12px;
+  text-align: center;
+}
+.footer-text2
+{
+  position: absolute;
+  margin-top: 650px;
+  margin-left: 430px;
+  color: #fff8e8;
+  font-size: 13px;
+  text-align: center;
+}
+.Discover-more
+{
+  position: relative;
+}
+.Discover-more img
+{
+  width:1000px;
+  height: 670px;
+  margin-left: 320px;
+  margin-top: 150px;
+
+  cursor: pointer;
+}
+
+.btn
+{
+  
+  width: 300px;
+  height: 50px;
+  border-radius: 25px;
+  padding: 16px 20px;
+  background-color: #674636;
+  color: #fff8e8;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  margin-left: 650px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  bottom: 100px;
+  z-index: 55;
+}
+.btn:hover {
+  background-color: #cdbba6; 
+  color: #674636; 
+  transform: scale(1.03);
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.arroooow
+{
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 800px;
+  font-size: 50px;
+  color: #674636;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+  transform: scale(1.2); /* Moves icon 10px to the right and slightly enlarges it */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+  justify-content: center;
+  align-items: center;
+}
+.trending-buttons {
+  text-align: center;
+}
+
+.trending-buttons button:hover {
+  background-color: #523a2a;
+}
+
+#trendingDescription {
+  color: #fff8e8;
+  font-size: 16px;
+  line-height: 1.5;
+  transform: translateY(-80px);
+  position: relative;
+  top: -5px;
+  left: 400px;
+  text-align: left;
+  background-color: #674636;
+}
+#trendingImg
+{
+  
+  width: 280px;
+  height: 420px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  position: absolute;
+  top: -180px;
+  left: 50px;
+  margin-left: 20px;
+}
+.scroll-footer{
+  margin-top: -250px;
+
+}

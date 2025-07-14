@@ -1,0 +1,332 @@
+@font-face {
+    font-family: 'KEANON';
+    src: url('KEANON.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Gyahegi';
+    src: url('Gyahegi.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @keyframes fadeInPage {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: #FFF8E8;
+    font-family: 'KEANON', sans-serif;
+    animation: fadeInPage 0.2s ease-out forwards;
+    overflow-x: hidden; /* Prevent horizontal sliding */
+}
+.container{
+    display: flex;
+    
+}
+.top-box{
+    position: absolute;
+    top: 175px;
+    left: 400px;
+    width: 20%;
+    height:63%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    z-index: 15;
+}
+.left-box{
+    position: fixed;
+    width: 35%;
+    height: 100vh;
+    overflow: hidden;
+}
+.left-box .logo{
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    z-index: 1;
+}
+.book-cover{
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    filter: blur(15px);
+    transform: scale(1.1);
+    object-fit: cover;
+    z-index: -1;
+}
+.icons{
+    position: absolute;
+    top: 42%;
+    margin-left: 25px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Adjust spacing between icons */
+}
+.home{
+    width: 7%;
+}
+.home:hover {
+    transform: translateX(10px) scale(1.1); /* Moves icon 10px to the right and slightly enlarges it */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+}
+.cart{
+    width: 7%;
+    }
+.cart:hover {
+    transform: translateX(10px) scale(1.1); /* Moves icon 10px to the right and slightly enlarges it */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+}
+.bar{
+    width: 7%;
+}
+.bar:hover {
+    transform: translateX(10px) scale(1.1); /* Moves icon 10px to the right and slightly enlarges it */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transform and color */
+}
+.book-tab.active {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
+
+    color: #674636;
+}
+.book-info{
+    color: rgba(103, 70, 54, 0.4);
+    font-size: 15px;
+    position: fixed;
+    top: 12%;
+    left: 790px;
+    cursor: pointer;
+}
+.book-info:hover {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.book-simi{
+    color: rgba(103, 70, 54, 0.4);
+    font-size: 15px;
+    position: absolute;
+    top: 12%;
+    left: 885px;
+    cursor: pointer;
+
+}
+.book-simi:hover {
+    transition: transform 0.3s ease, color 0.3s ease; 
+
+}
+.book-details {
+    display: flex; 
+    gap: 30px; 
+    position: absolute;
+    top: 18%; 
+    left: 780px; 
+}
+
+.book-title {
+    font-size: 30px;
+    color: #674636;
+    font-family: "Gyahegi", sans-serif;
+    display: inline-block;
+    white-space: nowrap; 
+}
+
+.type-book {
+    font-size: 15px;
+    color: rgba(103, 70, 54, 0.4);
+    align-self: center; 
+    margin-top: 27px;
+    white-space: nowrap;
+}
+.stars {
+    position: absolute;
+    font-size: 28px;
+    color: #FFF8E8;
+    top: 27%;
+    left: 780px;
+}
+
+.stars::before {
+    content: "★★★★★";
+    letter-spacing: 3px;
+    display: inline-block;
+    color: #674636;
+}
+
+.stars[data-rating="1"]::before { content: "★☆☆☆☆"; }
+.stars[data-rating="2"]::before { content: "★★☆☆☆"; }
+.stars[data-rating="3"]::before { content: "★★★☆☆"; }
+.stars[data-rating="4"]::before { content: "★★★★☆"; }
+.stars[data-rating="5"]::before { content: "★★★★★"; }
+
+
+.content{
+    position: absolute;
+    font-size: 15px;
+    color: rgba(103, 70, 54, 0.6); 
+    font-family: 'KEANON';
+    top: 38%;
+    left: 790px;
+    max-width: 700px; /* Adjust the width as needed */
+}
+.avalibale{
+    position: absolute;
+    font-size: 14px;
+    color: rgb(103, 70, 54); 
+    font-family: 'KEANON';
+    top: 75%;
+    left: 780px;
+}
+#image{
+    width: 20px;
+    height: 20px;
+}
+.b1.active {
+    background-color: #674636;
+}
+.b1 {
+    background-color: rgba(103, 70, 54, 0.4);
+    border-radius: 30px;
+    font-size: 15px; 
+    color: white;
+    text-decoration: none;
+    padding: 15px 170px;
+    text-align: center;
+    font-family: 'KEANON';
+    border: none;
+    cursor: pointer;
+}
+
+
+.button1{
+    position: absolute; 
+    top: 80%; 
+    left: 58%;
+}
+.b1.active:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease, color 0.3s ease; 
+
+}
+
+#similar-box{
+    position: relative;
+    overflow: hidden;
+    top: 62%;
+    left: 30%;
+    display: flex;
+    gap: 50px;
+    margin: auto;
+}
+.sliderc{
+    position: relative;
+    padding: 0 10vw;
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 40%;
+    margin-left: 50px;
+}
+.sliderc::-webkit-scrollbar {
+    display: none;
+  }
+.slider{
+    flex: 0 0 auto;
+    width: 250px;
+    height: 450px;
+    margin-right: -60px;
+}
+.pre-btn .material-symbols-outlined{
+    position: absolute;
+    top: 32%;
+    left: 60%;
+}
+.nxt-btn .material-symbols-outlined{
+    position: absolute;
+    top: 47.5%;
+}
+.pre-btn,
+.nxt-btn {
+    border: none;
+    width: 10vw;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFF8E8 100%);
+    cursor: pointer;
+    color: #674636;
+    font-size: 50px;
+    padding: 10px; /* Added padding */
+    z-index: 8;
+}
+.pre-btn{
+    width: 10vw;
+    top: -100px;
+    left: 168px;
+    rotate: 180deg;
+  
+}
+.nxt-btn {
+    top: -100px;
+    right: 820px;
+  }
+.dado_book {
+    position: relative;    
+    width: 160px;
+    height: 246px;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 5PX 5px 10px #674636;
+    margin-bottom: 0;
+    display: inline-block;
+    margin-left: 20px;
+  }
+  .dado_book:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease; 
+
+  }
+#confirmation-message{
+    position: absolute;
+    top: 620px;
+    left: 1000px;
+    color: #674636;
+    font-size: 14px;
+    z-index: 1000; /* Ensure it's above other elements */
+    text-align: center;
+    width: 300px; /* Adjust width as needed */
+}
+#message-container{
+    position: absolute;
+    display: flex;
+    display: none;
+}
+#image2{
+    position: relative;
+    top: 625px;
+    left: 1300px;
+    width: 5%;
+    height: 5%;
+    border-radius: 7px 7px 7px 7px;
+    object-fit: cover;
+}

@@ -1,0 +1,167 @@
+@font-face {
+    font-family: 'KEANON';
+    src: url('KEANON.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  *{
+    font-family: 'KEANON', Arial, Helvetica, sans-serif; 
+  }
+
+
+body {
+    margin:  0;
+    background: #fff8e8;
+    padding: 15px;
+}
+
+#logout{
+
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+    color: #674636;
+    gap: 8px;
+    margin-bottom: 20PX;
+}
+
+.logoutlink{
+
+    color: #674636;
+    font-size: 10px;
+}
+
+
+ 
+.dado_add_admin {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1000px; /* Reduced max-width to make the box smaller */
+  width: 100%;
+  margin: 12px auto 20px auto;
+  background: #fff8e8;
+  padding: 30px; /* Reduced padding to make the box smaller */
+  border-radius: 30px;
+  box-shadow: 0 4px 20px #674636;
+  float: left;
+  margin-top: -15px;
+  margin-left: 250px;
+  animation: dado-anmi 1s ease-out forwards;
+}
+
+@keyframes dado-anmi {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+
+
+#rightimg{
+
+    max-width: 100%;
+    width: 600px;
+    height: 650px;
+    float: right;
+    border-radius: 30px;
+    margin-right: -4px;
+    box-shadow: 0 4px 20px rgba(103, 70, 54, 0.5);
+    animation: dado-anmi2 1s ease-out forwards;
+}
+.leftbox {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.rightbox {
+  flex: 1;
+  text-align: center;
+}
+
+
+
+@keyframes dado-anmi2 {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+h2 {
+    margin: 30px auto 5px auto;
+    text-align: center;
+    color: #674636;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    color: #674636;
+}
+
+input,
+select,
+textarea {
+    width: 80%;
+    padding: 0.8rem;
+    margin-top: 0.6rem;
+    border: 1.5px solid  #674636;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff8e8;
+    margin-left: 50px;
+}
+
+textarea::placeholder {
+    color: rgba(103, 70, 54, 0.5); 
+   font-size: 12px;
+font-style: normal;
+  }
+
+  input::placeholder {
+    
+    color: rgba(103, 70, 54, 0.5); 
+   font-size: 12px;
+  }
+button {
+    margin-top: 2rem;
+    width: 85%;
+    padding: 0.9rem;
+    background-color: #674636;
+    color:  #fff8e8;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-left: 50px;
+}
+
+button:hover {
+
+    transform: scale(1.05);
+    background-color:#8a614d;
+  
+}
+
+input[type="file"] {
+    width: 83%;
+    padding: 5px;
+    border-radius: 5px;
+    color: rgba(103, 70, 54, 0.5); 
+    cursor:pointer;
+    font-size: small;
+
+  }
+  

@@ -1,0 +1,212 @@
+@font-face {
+    font-family: 'KEANON';
+    src: url('KEANON.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Gyahegi';
+    src: url('Gyahegi.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @keyframes slideFromRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+@keyframes fadeInPage {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to right, #FFF8E8, #eaddc0);
+    font-family: 'KEANON', serif;
+    margin: 0;
+    animation: fadeInPage 1s ease-out forwards;
+
+}
+
+.container {
+    display: flex;
+    width: 1000px;
+    height: 550px;
+    background-color: #FFF8E8;
+
+    border-radius: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+
+.left-side {
+    width: 50%;
+    height: 100vh;
+    position: relative;
+    background-color: #FFF8E8;
+}
+
+.mainimage {
+    opacity: 0;
+      transform: translateX(100%);
+      animation: slideFromRight 1s ease-out forwards;
+    position: absolute; 
+    top: 0.5%; 
+    left: 2%; 
+    width: 115%;
+    height: 74%;    
+}
+
+.overlay {
+    position: absolute; 
+    font-size: 10px;
+    font-family: "KEANON";
+    text-align: center;
+    color: #ffffff;
+    position: absolute; 
+    top: 5%; 
+    left:10%;
+}
+
+.right-side {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    background: #FFF8E8;
+}
+
+#bookty{
+    font-size: 20px;
+    color: #4d331f;
+    margin-bottom: 10px;
+    font-family: 'KEANON' ;
+    position: relative;
+    left: 7%;
+}
+h1 {
+    font-size: 18px;
+    color: #4d331f;
+    position: relative;
+    top: -20%;
+    left: 7%;
+    font-family: 'Gyahegi';
+
+}
+
+.input-container {
+    left: 10%;
+    width: 150%;
+    position: relative;
+    left:22%;
+    top:-25%;
+    margin: 15px 0;
+    transform: translate(-100px, -100%);
+}
+
+input[type="email"],
+input[type="password"],
+textarea {
+    background-color: transparent; 
+    border: 0.5px solid #674636;
+    border-radius: 30px; 
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    outline: none;
+    color: #674636; 
+    font-family: "KEANON";
+    font-size: 12px;
+    position: relative;
+    left: 5%;
+    top:-100%;
+}
+
+.b1{
+    background-color: #674636;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    padding: 14px 26px; 
+    font-size: 14px; 
+    text-align: center;
+    font-family: 'KEANON';
+    border: none;
+    cursor: pointer;
+    
+
+
+}
+
+
+.b2 {
+    background-color: transparent; 
+    border: 1.5px solid #ffffff; 
+    border-radius: 30px;
+    font-size: 10px; 
+    color: #ffffff; 
+    text-decoration: none;
+    padding: 12px 25px;
+    text-align: center;
+    font-family: 'KEANON';
+}
+.button2{
+    position: absolute; 
+    top: 5%;
+    left: 7%;
+}
+.button1:hover {
+    transform: scale(1.05);
+}
+
+.forgot-password {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #4d331f;
+    text-align: center; /* توسيط المحتوى */
+    font-family: "KEANON";
+    position: relative;
+    top: -30%;
+    right: -20%;
+
+}
+
+.forgot-password a {
+    display: block; /* يجعل الرابط يأخذ عرض الكتلة */
+    text-decoration: none;
+    font-size: 9px; /* تكبير النص */
+    color: #4d331f;
+    text-transform: uppercase;
+    margin-top: 5px; /* مسافة بسيطة بين النص والرابط */
+}
+.form2{
+
+    width: 50%;
+    height:35%;
+
+}
+
+
+.form2 input::placeholder {
+    font-family: "KEANON";
+    font-size: 12px;
+    position: absolute; 
+    left: 5%;
+    color: rgba(103, 70, 54, 0.5);
+
+
+}

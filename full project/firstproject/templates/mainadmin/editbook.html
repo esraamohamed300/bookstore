@@ -1,0 +1,70 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit-Book</title>
+    <link rel="stylesheet" href="{% static 'css/editbook.css'%}">
+    
+</head>
+
+<body>
+
+    <nav id="logout">
+        <a href="{% url 'mainadmin'%}"> Home </a> 
+        <a href="{% url 'starting'%}"> Logout</a>
+    </nav>
+
+    <div class="container">
+        <div class="es_box1">
+            <h2>Edit Book</h2>
+            <form method="post" action="{% url 'edit' book.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Book Title</label>
+                    <input type="text" id="title" name="title" value="{{book.title}}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" value="{{book.author}}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="text" id="category" name="category" value="{{book.category}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description"
+                        rows="4">{{book.description}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="cover">Cover Image URL</label>
+                    <input type="file" name="cover"><br>
+                    
+                     {% if book.photos %}
+                         <img src="{{ book.photos.url }}" width="100" height="150"><br>
+                    {% endif %}
+                   
+                </div>
+
+                <div class="form-group">
+                     <button type="submit" id="updateButton">Update Book</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="es_box2">
+            <img src="{% static 'image/editphoto.jpeg'%}" id="es_animi" alt="">
+        </div>
+
+    </div>
+    <script src="{% static 'java/editbook.java'%}"></script>
+</body>
+
+</html>
